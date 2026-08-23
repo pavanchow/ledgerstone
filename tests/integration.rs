@@ -14,6 +14,19 @@ fn exec(db: &mut Database, sql: &str) -> QueryResult {
 }
 
 #[test]
+fn corrupt_wal_length_is_rejected_not_allocated() {
+    let path = temp_db_path("hostile_len");
+    // A 4-byte little-endian length prefix claiming about 4GB, then no payload.
+    std::fs::write(&path, [0xFF, 0xFF, 0xFF, 0xFF]).unwrap();
+    match Database::open(&path) {
+        Err(LsError::Storage(msg)) => assert!(msg.contains("exceeds"), "unexpected message: {msg}"),
+        Err(e) => panic!("expected the storage size-cap error, got: {e}"),
+        Ok(_) => panic!("a hostile record length must be rejected, not opened"),
+    }
+    let _ = std::fs::remove_file(&path);
+}
+
+#[test]
 fn create_insert_select_returns_rows() {
     let path = temp_db_path("basic");
     let mut db = Database::open(&path).unwrap();

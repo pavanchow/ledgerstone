@@ -7,6 +7,12 @@ use serde_json::json;
 use std::io::{BufRead, BufReader, Read, Write};
 use std::net::{TcpListener, TcpStream};
 use std::sync::{Arc, Mutex};
+use std::time::Duration;
+
+/// A client that goes silent must not hold the server. Reads time out.
+const READ_TIMEOUT: Duration = Duration::from_secs(15);
+/// Cap the request body so a huge Content-Length cannot exhaust memory.
+const MAX_BODY: usize = 16 * 1024 * 1024;
 
 pub fn serve(db: Arc<Mutex<Database>>, port: u16) -> std::io::Result<()> {
     let listener = TcpListener::bind(("127.0.0.1", port))?;
@@ -14,6 +20,7 @@ pub fn serve(db: Arc<Mutex<Database>>, port: u16) -> std::io::Result<()> {
     for stream in listener.incoming() {
         match stream {
             Ok(s) => {
+                let _ = s.set_read_timeout(Some(READ_TIMEOUT));
                 let db = Arc::clone(&db);
                 if let Err(e) = handle(s, db) {
                     eprintln!("ledgerstone: connection error: {e}");
@@ -51,6 +58,9 @@ fn handle(mut stream: TcpStream, db: Arc<Mutex<Database>>) -> std::io::Result<()
         }
     }
 
+    if content_length > MAX_BODY {
+        return write_response(&mut stream, 413, &json!({"ok": false, "error": "request body too large"}));
+    }
     let mut body = vec![0u8; content_length];
     if content_length > 0 {
         reader.read_exact(&mut body)?;

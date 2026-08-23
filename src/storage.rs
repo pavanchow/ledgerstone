@@ -26,6 +26,11 @@ use std::fs::{File, OpenOptions};
 use std::io::{BufReader, Read, Write};
 use std::path::{Path, PathBuf};
 
+/// Largest single WAL record we will allocate for on replay. A corrupt or
+/// hostile log claiming a huge length is rejected before the allocation,
+/// so opening a bad database file cannot exhaust memory.
+const MAX_RECORD_SIZE: usize = 64 * 1024 * 1024;
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct StoredColumn {
     pub name: String,
@@ -92,6 +97,11 @@ impl Database {
                     Err(e) => return Err(LsError::Storage(format!("read error: {e}"))),
                 }
                 let len = u32::from_le_bytes(len_buf) as usize;
+                if len > MAX_RECORD_SIZE {
+                    return Err(LsError::Storage(format!(
+                        "record length {len} exceeds the {MAX_RECORD_SIZE} byte limit, refusing to allocate"
+                    )));
+                }
                 let mut buf = vec![0u8; len];
                 reader
                     .read_exact(&mut buf)
