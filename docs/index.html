@@ -176,6 +176,24 @@ DELETE FROM users WHERE score &lt; 5.0
     </div>
   </section>
 
+  <section id="cli">
+    <p class="eyebrow" style="text-align:center">Same engine, on the command line</p>
+    <h2 style="margin-top:18px">Real rows, from the real binary.</h2>
+    <p class="lead">The <code>exec</code> subcommand runs one statement against a database file and prints the result: an aligned table for a SELECT, a row count for a write, and a typed error for anything malformed. This is a real session against a fresh database:</p>
+    <div class="snip"><pre style="margin:0;background:none;color:inherit;font:inherit;white-space:pre-wrap"><span class="c">$ ledgerstone --db data.lst exec "CREATE TABLE users (id INTEGER, name TEXT, dept TEXT, score REAL)"</span>
+OK
+<span class="c">$ ledgerstone --db data.lst exec "INSERT INTO users VALUES (1, 'alice', 'eng', 9.5)"</span>
+1 row(s) affected
+<span class="c">$ ledgerstone --db data.lst exec "SELECT name, score FROM users WHERE dept = 'eng' AND score &gt;= 8.0 ORDER BY score DESC"</span>
+name  | score
+------+------
+alice | 9.5
+carol | 8.75
+(2 rows)
+<span class="c">$ ledgerstone --db data.lst exec "SELECT nope FROM users"</span>
+error: not found: column 'nope' does not exist</pre></div>
+  </section>
+
   <section>
     <h2>Built to be run, not just read.</h2>
     <div class="rows">
@@ -183,6 +201,15 @@ DELETE FROM users WHERE score &lt; 5.0
       <div class="r"><b>HTTP API</b><p><code>ledgerstone --db data.lst serve</code> exposes a local <code>POST /query</code> endpoint that takes raw SQL and returns JSON.</p></div>
       <div class="r"><b>MCP server</b><p><code>ledgerstone --db data.lst mcp</code> runs a stdio MCP server with a single <code>ledgerstone_query</code> tool, so an agent can query the database directly.</p></div>
       <div class="r"><b>No panics</b><p>Bad SQL, wrong types, and missing tables all come back as typed errors. A malformed query never brings the process down.</p></div>
+    </div>
+  </section>
+
+  <section id="compare">
+    <h2>How it compares</h2>
+    <p class="lead">Ledgerstone is not trying to replace SQLite. It is trying to be the relational engine you can read in full. The comparison is about legibility, not coverage.</p>
+    <div class="rows">
+      <div class="r"><b>SQLite</b><p>A superb, production embedded database, and a large C engine with a page cache, a B-tree store, and a bytecode VM underneath. You depend on it, you do not read it end to end.</p></div>
+      <div class="r"><b>Ledgerstone</b><p>A single readable Rust crate: an append-only typed log, an in-memory index, and a hand-written lexer, parser, and executor. No C dependency, no server, and small enough to open in an editor and follow start to finish.</p></div>
     </div>
   </section>
 
