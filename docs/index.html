@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
   <title>Ledgerstone: an embedded relational database in Rust</title>
   <meta name="description" content="Ledgerstone is an embedded relational database in Rust with a real SQL subset: a hand-written lexer, parser, and executor over a typed, persistent table store, single file per database, no server.">
   <meta name="author" content="Pavan Nallamothu (pavanchow)">
@@ -120,6 +121,7 @@
   </div></nav>
 
   <div class="hero">
+    <img src="logo.svg" alt="Ledgerstone logo" width="72" height="72">
     <p class="eyebrow">Rust · no server · one file per database</p>
     <h1>A database engine<br>you can read start to finish.</h1>
     <p class="sub">Ledgerstone is an embedded relational database in Rust. Tables, rows, and a genuine hand-written SQL parser and executor, all in a single readable crate with no server process and no C dependency.</p>
@@ -140,6 +142,13 @@
       <div id="out" class="out"></div>
       <p class="caption">runs fully client-side, a JS port of the same lexer, parser, and executor as the Rust crate, preloaded with a sample schema</p>
     </div>
+  </div>
+
+  <div class="stage" style="padding-top:0">
+    <details>
+      <summary>How to use this playground</summary>
+      <p class="lead">Type a SQL statement in the box (or click a sample chip to load one), then press <b>Run</b> to execute it against the in-browser database, which is preloaded with a sample schema. Results and typed errors appear below; run <code>CREATE TABLE</code>, <code>INSERT</code>, <code>SELECT</code>, <code>UPDATE</code>, and <code>DELETE</code> just as you would against the Rust engine.</p>
+    </details>
   </div>
 
   <section id="how">

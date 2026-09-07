@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Ledgerstone logo">
+  <defs>
+    <linearGradient id="ls-stone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b9b2a6"/>
+      <stop offset="1" stop-color="#847c6e"/>
+    </linearGradient>
+    <linearGradient id="ls-head" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d5721f"/>
+      <stop offset="1" stop-color="#a8430f"/>
+    </linearGradient>
+  </defs>
+  <!-- stone tablet -->
+  <rect x="16" y="16" width="96" height="96" rx="13" fill="url(#ls-stone)" stroke="#4f4a41" stroke-width="3"/>
+  <!-- table header row -->
+  <path d="M16 29 a13 13 0 0 1 13 -13 h70 a13 13 0 0 1 13 13 v9 H16 Z" fill="url(#ls-head)"/>
+  <!-- row grid lines -->
+  <g stroke="#efe9dd" stroke-width="3" opacity="0.85">
+    <line x1="16" y1="56" x2="112" y2="56"/>
+    <line x1="16" y1="76" x2="112" y2="76"/>
+    <line x1="16" y1="96" x2="112" y2="96"/>
+  </g>
+  <!-- column divider -->
+  <line x1="60" y1="38" x2="60" y2="112" stroke="#efe9dd" stroke-width="3" opacity="0.85"/>
+  <!-- cell ticks -->
+  <g stroke="#3f3a33" stroke-width="4" stroke-linecap="round" opacity="0.6">
+    <line x1="26" y1="47" x2="46" y2="47"/>
+    <line x1="70" y1="47" x2="94" y2="47"/>
+    <line x1="26" y1="66" x2="46" y2="66"/>
+    <line x1="70" y1="66" x2="90" y2="66"/>
+    <line x1="26" y1="86" x2="42" y2="86"/>
+    <line x1="70" y1="86" x2="94" y2="86"/>
+  </g>
+</svg>
