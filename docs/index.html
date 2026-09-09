@@ -4,21 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/svg+xml" href="logo.svg">
-  <title>Ledgerstone: an embedded relational database in Rust</title>
-  <meta name="description" content="Ledgerstone is an embedded relational database in Rust with a real SQL subset: a hand-written lexer, parser, and executor over a typed, persistent table store, single file per database, no server.">
-  <meta name="author" content="Pavan Nallamothu (pavanchow)">
-  <meta name="keywords" content="embedded database, relational database, Rust, SQL parser, SQL engine, single file database, no server, Pavan Nallamothu, pavanchow">
-  <link rel="canonical" href="https://pavanchow.github.io/ledgerstone/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Ledgerstone: an embedded relational database in Rust">
-  <meta property="og:description" content="A readable, single-file embedded relational database in Rust. Real tables, real rows, a genuine SQL parser and executor. Try it live in the browser.">
-  <meta property="og:url" content="https://pavanchow.github.io/ledgerstone/">
-  <meta property="og:site_name" content="Ledgerstone">
-  <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Ledgerstone","applicationCategory":"DeveloperApplication","operatingSystem":"Cross-platform","softwareVersion":"0.1.0","author":{"@type":"Person","name":"Pavan Nallamothu"},"description":"Ledgerstone is an embedded relational database in Rust with a real SQL subset: a hand-written lexer, parser, and executor over a typed, persistent table store.","url":"https://pavanchow.github.io/ledgerstone/","codeRepository":"https://github.com/pavanchow/ledgerstone","programmingLanguage":"Rust"}
-  </script>
-  <style>
+  <title>Ledgerstone: embedded SQL database in Rust | Pavan Nallamothu</title>
+<meta name="description" content="Ledgerstone is an embedded SQL database in Rust: a hand-written lexer, parser, and executor over a typed, persistent table store. By Pavan Nallamothu.">
+<meta name="keywords" content="Ledgerstone, embedded SQL database in Rust, relational database in Rust, SQL parser, SQL engine, single file database, embedded database, hand-written parser, query executor, SQLite alternative Rust, database from scratch, Ledgerstone rust, Pavan Nallamothu, pavanchow">
+<meta name="author" content="Pavan Nallamothu">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://pavanchow.github.io/ledgerstone/">
+<link rel="author" href="https://github.com/pavanchow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pavan Nallamothu">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Ledgerstone: embedded SQL database in Rust | Pavan Nallamothu">
+<meta property="og:description" content="Ledgerstone is an embedded SQL database in Rust: a hand-written lexer, parser, and executor over a typed, persistent table store. By Pavan Nallamothu.">
+<meta property="og:url" content="https://pavanchow.github.io/ledgerstone/">
+<meta property="og:image" content="https://pavanchow.github.io/ledgerstone/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ledgerstone by Pavan Nallamothu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ledgerstone: embedded SQL database in Rust | Pavan Nallamothu">
+<meta name="twitter:description" content="Ledgerstone is an embedded SQL database in Rust: a hand-written lexer, parser, and executor over a typed, persistent table store. By Pavan Nallamothu.">
+<meta name="twitter:image" content="https://pavanchow.github.io/ledgerstone/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://github.com/pavanchow#person","name":"Pavan Nallamothu","alternateName":"pavanchow","url":"https://github.com/pavanchow","jobTitle":"Software Engineer and Security Researcher","knowsAbout":["Rust","systems programming","compilers","operating systems","databases","browser engines","cryptography","security research"],"sameAs":["https://github.com/pavanchow","https://hackerone.com/pavanchow"]},{"@type":"SoftwareApplication","@id":"https://pavanchow.github.io/ledgerstone/#software","name":"Ledgerstone","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, macOS, Windows","description":"Ledgerstone is an embedded SQL database in Rust: a hand-written lexer, parser, and executor over a typed, persistent table store. By Pavan Nallamothu.","url":"https://pavanchow.github.io/ledgerstone/","image":"https://pavanchow.github.io/ledgerstone/og-image.png","softwareVersion":"0.1.0","programmingLanguage":"Rust","codeRepository":"https://github.com/pavanchow/ledgerstone","datePublished":"2026-08-21","author":{"@id":"https://github.com/pavanchow#person"},"publisher":{"@id":"https://github.com/pavanchow#person"},"keywords":"Ledgerstone, embedded SQL database in Rust, relational database in Rust, SQL parser, SQL engine, single file database, embedded database, hand-written parser, query executor, SQLite alternative Rust, database from scratch, Ledgerstone rust, Pavan Nallamothu, pavanchow","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Hand-written SQL lexer","SQL parser","Query executor","Typed persistent table store","Single file per database","No server"]},{"@type":"WebSite","@id":"https://pavanchow.github.io/ledgerstone/#website","name":"Ledgerstone by Pavan Nallamothu","url":"https://pavanchow.github.io/ledgerstone/","author":{"@id":"https://github.com/pavanchow#person"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Pavan Nallamothu","item":"https://github.com/pavanchow"},{"@type":"ListItem","position":2,"name":"Ledgerstone","item":"https://pavanchow.github.io/ledgerstone/"}]},{"@type":"WebPage","@id":"https://pavanchow.github.io/ledgerstone/","url":"https://pavanchow.github.io/ledgerstone/","name":"Ledgerstone: embedded SQL database in Rust | Pavan Nallamothu","isPartOf":{"@id":"https://pavanchow.github.io/ledgerstone/#website"},"about":{"@id":"https://pavanchow.github.io/ledgerstone/#software"},"author":{"@id":"https://github.com/pavanchow#person"},"inLanguage":"en"}]}</script>
+
+<style>
     :root{
       --accent:#b3541e;--accent-soft:#faefe6;
       --ink:#1c1a17;--muted:#6f6a62;--faint:#9a948a;
@@ -117,10 +126,6 @@
     footer{padding:64px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
     footer .name{color:var(--ink);font-weight:600}
   </style>
-<link rel="author" href="https://github.com/pavanchow">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Pavan Nallamothu","alternateName":"pavanchow","url":"https://github.com/pavanchow","sameAs":["https://github.com/pavanchow","https://hackerone.com/pavanchow"]}
-</script>
 </head>
 <body>
   <nav><div class="row">
@@ -235,7 +240,19 @@ error: not found: column 'nope' does not exist</pre></div>
     <p>An embedded relational database in Rust, readable end to end.</p>
     <p style="margin-top:12px"><a href="https://github.com/pavanchow/ledgerstone">github.com/pavanchow/ledgerstone</a></p>
     <p style="margin-top:12px">By <span class="name">Pavan Nallamothu</span>.</p>
-  </footer>
+  <div class="more-tools" style="margin-top:30px;font-size:14px;line-height:2">
+    <p style="font-weight:600;margin-bottom:6px">More open-source tools by Pavan Nallamothu</p>
+    <p>
+      <a href="https://pavanchow.github.io/keystone/">Keystone, an embedded key-value store in Rust</a> &middot;
+      <a href="https://pavanchow.github.io/flint/">Flint, a key-value store in Rust</a> &middot;
+      <a href="https://pavanchow.github.io/conduit/">Conduit, a PostgreSQL driver in Rust</a> &middot;
+      <a href="https://pavanchow.github.io/strata/">Strata, a file system in Rust</a> &middot;
+      <a href="https://pavanchow.github.io/trailhead/">Trailhead, a full-text search engine in Rust</a> &middot;
+      <a href="https://pavanchow.github.io/timelace/">Timelace, a version control system in Rust</a> &middot;
+      <a href="https://github.com/pavanchow">All projects on GitHub</a>
+    </p>
+  </div>
+</footer>
 
 <script>
 (function () {
