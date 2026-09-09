@@ -25,15 +25,24 @@
       --line:#e9e4dc;--panel:#f6f3ee;--panel2:#fbfaf7;
       --mono:ui-monospace,SFMono-Regular,Menlo,"SF Mono",monospace;
     }
+    @media(prefers-color-scheme:dark){
+      :root{
+        --accent:#e08a52;--accent-soft:#2a1c12;
+        --ink:#f0ece6;--muted:#a89f93;--faint:#7d766b;
+        --line:#2a2620;--panel:#17140f;--panel2:#100e0b;
+      }
+    }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{background:#fff;color:var(--ink);
       font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
       -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    @media(prefers-color-scheme:dark){body{background:#0c0a08}}
     .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
     a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 
     nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
+    @media(prefers-color-scheme:dark){nav{background:rgba(12,10,8,.72)}}
     nav .row{display:flex;justify-content:space-between;align-items:center;height:56px;max-width:1040px;margin:0 auto;padding:0 28px}
     nav .brand{display:flex;align-items:center;gap:9px;font-size:18px;font-weight:650;letter-spacing:-.01em}
     nav .brand .gem{width:16px;height:16px;transform:rotate(45deg);border-radius:3px;background:linear-gradient(135deg,#e0a06e,#b3541e)}
@@ -50,12 +59,14 @@
     .btn{display:inline-block;padding:12px 24px;border-radius:980px;font-weight:600;font-size:15px}
     .btn:hover{text-decoration:none}
     .btn.p{background:var(--ink);color:#fff}
+    @media(prefers-color-scheme:dark){.btn.p{color:#0c0a08}}
     .btn.p:hover{background:var(--accent)}
     .btn.s{border:1px solid var(--line);color:var(--ink)}
     .btn.s:hover{border-color:var(--ink)}
 
     .stage{max-width:960px;margin:44px auto 0;padding:0 28px}
     .card{position:relative;background:linear-gradient(180deg,#fffdfa,#f8f3ec);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 1px 0 #fff inset,0 18px 50px -30px rgba(80,50,20,.25);padding:26px}
+    @media(prefers-color-scheme:dark){.card{background:linear-gradient(180deg,#16130f,#100e0b);box-shadow:0 18px 50px -30px rgba(0,0,0,.6)}}
 
     .demo textarea{width:100%;min-height:110px;resize:vertical;background:var(--panel2);
       border:1px solid var(--line);border-radius:14px;padding:16px 18px;
@@ -65,6 +76,7 @@
     .chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
     .chip{cursor:pointer;font-family:var(--mono);font-size:12px;padding:7px 13px;border-radius:980px;
       background:#fff;border:1px solid var(--line);color:var(--muted)}
+    @media(prefers-color-scheme:dark){.chip{background:var(--panel)}}
     .chip:hover{border-color:var(--accent);color:var(--accent)}
     .go{cursor:pointer;padding:12px 26px;border-radius:980px;border:none;background:var(--accent);color:#fff;font-weight:600;font-size:15px}
     .go:hover{background:#9a4718}
