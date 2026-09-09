@@ -1,6 +1,7 @@
 [package]
 name = "ledgerstone"
 version = "0.1.0"
+license = "MIT"
 edition = "2021"
 description = "An embedded relational database in Rust: a hand-written SQL parser and executor over a typed, persistent table store, single file per database, no server."
 
