@@ -6,6 +6,8 @@ Ledgerstone is a from-scratch embedded relational database in Rust with a real S
 
 **[Live demo](https://pavanchow.github.io/ledgerstone/)** · MIT licensed · pure Rust, single-file database
 
+Built from scratch by [Pavan Nallamothu](https://pavanchow.github.io/) ([LinkedIn](https://www.linkedin.com/in/pavanchow/), [GitHub](https://github.com/pavanchow)).
+
 ## SQL supported
 
 - `CREATE TABLE t (col TYPE, ...)` with `INTEGER`, `TEXT`, and `REAL` columns
